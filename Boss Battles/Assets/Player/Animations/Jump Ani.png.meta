@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a19488d012b20e409a3ec237d3d002d
+guid: a3ea4c40b1aed6549a282586e2b79d3d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 40
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,13 +123,118 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 123456_0
+      name: bluujumpR-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 65
+        width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bb764981f2a5f44bb8f13415cded116
+      internalID: 2000987431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bluujumpR-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 65
+        width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b3755d19bffa8644bee43025aedd0fe
+      internalID: 1977531816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bluujumpR-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 65
+        width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b6108bd9e5f284bb561cc8ea52e183
+      internalID: -1991690120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bluujumpR-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 65
+        width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf1017b21c4f8994e87470cafb802be3
+      internalID: 1268802116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bluujumpR-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 65
+        width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 577a729afd9d7a24b9120b8bafe477ed
+      internalID: -275672941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bluujumpR-Sheet_5
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
-        height: 64
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bbd0e95e1861994b8cc7dd1d68c7ed9
-      internalID: -1945132727
+      spriteID: 96cb6a04a27268346a2dd987dcb4cdbf
+      internalID: 1533689756
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 123456_1
+      name: bluujumpR-Sheet_6
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
-        height: 64
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd83e1f801241a340a7f48784d93fd55
-      internalID: -2001418417
+      spriteID: d3eea3bfdc7988a4aadb4bd652d9d624
+      internalID: 1300006963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 123456_2
+      name: bluujumpR-Sheet_7
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
-        height: 64
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +284,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b4acf617b1c57c4cab77f2e1c0f40c2
-      internalID: 1129518241
+      spriteID: f37ac7b8254b140498fac4711ee5d20c
+      internalID: 1906472181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 123456_3
+      name: bluujumpR-Sheet_8
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
-        height: 64
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +305,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 152a8ccda96cc564b832de29eb9566b3
-      internalID: -1535587922
+      spriteID: 93b4d971f9850f2458d6212ab467841c
+      internalID: 1112785408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bluujumpR-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dff8d7091c2b89f41a45089d5c976e74
+      internalID: -371793152
       vertices: []
       indices: 
       edges: []
@@ -217,10 +343,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      123456_0: -1945132727
-      123456_1: -2001418417
-      123456_2: 1129518241
-      123456_3: -1535587922
+      bluujumpR-Sheet_0: 2000987431
+      bluujumpR-Sheet_1: 1977531816
+      bluujumpR-Sheet_2: -1991690120
+      bluujumpR-Sheet_3: 1268802116
+      bluujumpR-Sheet_4: -275672941
+      bluujumpR-Sheet_5: 1533689756
+      bluujumpR-Sheet_6: 1300006963
+      bluujumpR-Sheet_7: 1906472181
+      bluujumpR-Sheet_8: 1112785408
+      bluujumpR-Sheet_9: -371793152
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
