@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     //Performs player Jump
     private void Jump()
     {
-        if (isGrounded)
+        if (GroundCheck())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
