@@ -10,65 +10,53 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     public LayerMask groundLayer;
-
-    //[SerializeField] private Animator animbody;
-
     private Rigidbody2D rb;
-    private bool isGrounded;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        if(rb == null)
+        {
+            Debug.LogError("No rigibody connected to player.");
+        }
     }
     private void Update()
     {
-
-        MovePlayer();
-        
-        
+        PlayerMove();
     }
-    private void MovePlayer()
+    private void PlayerMove()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
+        movePlayer();
 
-        if (moveX < 0)
+        if (Input.GetKeyDown(KeyCode.Space) && GroundCheck())
         {
-            //animbody.SetFloat("Speed", -moveX);
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-        }
-        else if (moveX > 0)
-        {
-            //animbody.SetFloat("Speed", moveX);
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        }
-        //else { animbody.SetFloat("Speed", moveX); }
-
-        rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
-        isGrounded = GroundCheck();
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            //animbody.SetBool("isJumping", true);
-            
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
-        
     }
-    private bool GroundCheck()
+    //Performs the movement of the player
+    private void movePlayer()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.815f, groundLayer);
+        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rb.velocity.y);
+
+        if(Input.GetKeyDown(KeyCode.Space) )
+        {
+            Jump();
+        }
+    }
+    //Points a raycast down from the player position and if It touches ground returns true else false
+    public bool GroundCheck()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, groundLayer);
 
         return hit.collider != null;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    //Performs player Jump
+    private void Jump()
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (GroundCheck())
         {
-            
-            //animbody.SetBool("isJumping", false);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
 }
