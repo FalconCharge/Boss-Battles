@@ -24,8 +24,7 @@ public class PlayerHandler : MonoBehaviour
     }
 
     public void TakeDamage(float damage)
-    {
-        GetComponent<PlayerAnimation>().DamageTaken();
+    { 
         currHealth -= damage;
 
         if (currHealth <= 0)

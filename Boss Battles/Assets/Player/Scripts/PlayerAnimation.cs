@@ -54,8 +54,4 @@ public class PlayerAnimation : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, 0f); // Facing right
         }
     }
-    public void DamageTaken()
-    {
-        animbody.SetTrigger("TakeDamage");
-    }
 }
