@@ -7,6 +7,7 @@ public class PlayerAnimation : MonoBehaviour
 {
 
     private Animator animbody;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,5 +53,9 @@ public class PlayerAnimation : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0f, 0f, 0f); // Facing right
         }
+    }
+    public void DamageTaken()
+    {
+        animbody.SetTrigger("TakeDamage");
     }
 }
