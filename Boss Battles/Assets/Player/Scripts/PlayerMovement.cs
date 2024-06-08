@@ -1,62 +1,126 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed;
-    public float jumpForce;
-    public LayerMask groundLayer;
-    private Rigidbody2D rb;
+    public PlayerData Data;
 
-    void Start()
+    #region Variables
+    public Rigidbody2D rb { get; private set; }
+
+    public bool IsFacingRight { get; private set; }
+    public float LastOnGroundTime { get; private set; }
+
+    private Vector2 _moveInput;
+
+    #endregion
+
+    #region CHECK PARAMETERS
+
+    [Header("Checks")]
+    [SerializeField] private Transform _groundCheckPoint;
+    [SerializeField] private Vector2 _groundCheckSize = new Vector2(0.49f, 0.03f);
+
+    #endregion
+
+    #region LAYERS & TAGS
+    [Header("Layers & Tags")]
+    [SerializeField] private LayerMask _groundLayer;
+    #endregion
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        if(rb == null)
-        {
-            Debug.LogError("No rigibody connected to player.");
-        }
     }
+    private void Start()
+    {
+        IsFacingRight = true;
+    }
+
     private void Update()
     {
-        PlayerMove();
-    }
-    private void PlayerMove()
-    {
-        movePlayer();
+        #region InputHandler
+        _moveInput.x = Input.GetAxisRaw("Horizontal");
+        _moveInput.y = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space) && GroundCheck())
+        if (_moveInput.x != 0)  
+            CheckDirectionToFace(_moveInput.x > 0);
+        #endregion
+
+        #region collision Checks
+        if(Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            LastOnGroundTime = 0.1f;
+        }
+        #endregion
+    }
+
+    private void FixedUpdate()
+    {
+        Run();
+    }
+
+    private void Run()
+    {
+        float targetSpeed = _moveInput.x * Data.runMaxSpeed;
+
+        #region calculate AccelRate
+        float accelRate;
+
+        if (LastOnGroundTime > 0)
+            accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount : Data.runDeccelAmount;
+        else
+            accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount * Data.accelInAir : Data.runDeccelAmount * Data.deccelInAir;
+        #endregion
+
+
+        #region Conserve Momentum
+        //We won't slow the player down if they are moving in their desired direction but at a greater speed than their maxSpeed
+        if (Data.doConserveMomentum && Mathf.Abs(rb.velocity.x) > Mathf.Abs(targetSpeed) && Mathf.Sign(rb.velocity.x) == Mathf.Sign(targetSpeed) && Mathf.Abs(targetSpeed) > 0.01f && LastOnGroundTime < 0)
+        {
+            //Prevent any deceleration from happening, or in other words conserve are current momentum
+            //You could experiment with allowing for the player to slightly increae their speed whilst in this "state"
+            accelRate = 0;
+        }
+        #endregion
+
+        //Calculate difference between current velocity and desired velocity
+        float speedDif = targetSpeed - rb.velocity.x;
+        //Calculate force along x-axis to apply to thr player
+
+        float movement = speedDif * accelRate;
+
+        //Convert this to a vector and apply to rigidbody
+        rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
+    }
+    #region Methods
+
+    private void Turn()
+    {
+        //stores scale and flips the player along the x axis, 
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+
+        IsFacingRight = !IsFacingRight;
+    }
+    #endregion
+
+    private void OnDrawGizmos()
+    {
+        if (_groundCheckPoint != null)
+        {
+            Gizmos.color = Color.red; // You can choose any color you want
+            Gizmos.DrawWireCube(_groundCheckPoint.position, _groundCheckSize);
         }
     }
-    //Performs the movement of the player
-    private void movePlayer()
-    {
-        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rb.velocity.y);
 
-        if(Input.GetKeyDown(KeyCode.Space) )
-        {
-            Jump();
-        }
-    }
-    //Points a raycast down from the player position and if It touches ground returns true else false
-    public bool GroundCheck()
+    #region CHECK METHODS
+    public void CheckDirectionToFace(bool isMovingRight)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, groundLayer);
-
-        return hit.collider != null;
+        if (isMovingRight != IsFacingRight)
+            Turn();
     }
-    //Performs player Jump
-    private void Jump()
-    {
-        if (GroundCheck())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-    }
+    #endregion
 }

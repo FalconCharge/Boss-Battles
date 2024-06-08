@@ -31,7 +31,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-        bool isGrounded = GetComponent<PlayerMovement>().GroundCheck();
+        bool isGrounded = true;
 
         animbody.SetFloat("Speed", Mathf.Abs(moveX));
 
