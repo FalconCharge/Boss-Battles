@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Checks")]
     [SerializeField] private Transform _groundCheckPoint;
-    [SerializeField] private Vector2 _groundCheckSize = new Vector2(0.49f, 0.03f);
 
     #endregion
 
@@ -49,7 +48,8 @@ public class PlayerMovement : MonoBehaviour
         #endregion
 
         #region collision Checks
-        if(Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer))
+
+        if(Physics2D.Raycast(_groundCheckPoint.position,Vector2.down, 1, _groundLayer))
         {
             LastOnGroundTime = 0.1f;
         }
@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         if (_groundCheckPoint != null)
         {
             Gizmos.color = Color.red; // You can choose any color you want
-            Gizmos.DrawWireCube(_groundCheckPoint.position, _groundCheckSize);
+            Gizmos.DrawRay(_groundCheckPoint.position, Vector3.down * 1);
         }
     }
 

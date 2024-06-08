@@ -351,8 +351,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2102679739
+  m_SortingLayer: 1
   m_SortingOrder: 5
   m_Sprite: {fileID: 1268134751, guid: a73d82aa6258f6e4ca4009add0648368, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -441,8 +441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: a0610a82dcf9789449dd7ad2ef76ebb7, type: 2}
-  _groundCheckPoint: {fileID: 0}
-  _groundCheckSize: {x: 20, y: 2}
+  _groundCheckPoint: {fileID: 2586320509856874355}
+  _groundCheckSize: {x: 0, y: 0}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -478,9 +478,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.07359719}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.72640276
 --- !u!1 &7465083213171221745
 GameObject:
   m_ObjectHideFlags: 0
