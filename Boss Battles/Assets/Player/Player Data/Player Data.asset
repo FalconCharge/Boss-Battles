@@ -34,5 +34,5 @@ MonoBehaviour:
   jumpHangTimeThreshold: 1
   jumpHangAccelerationMult: 1
   jumpHangMaxSpeedMult: 1
-  coyoteTime: 0.01
+  coyoteTime: 0.149
   jumpInputBufferTime: 0.01
