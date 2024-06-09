@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _moveInput;
     //Jump
     private bool _isJumpCut;
-    private bool _isJumpFalling;
+    public bool IsJumpFalling;
 
     public float LastPressedJumpTime { get; private set; }
 
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsJumping && rb.velocity.y < 0)
         {
             IsJumping = false;
-            _isJumpFalling = true;
+            IsJumpFalling = true;
         }
         
         if (LastOnGroundTime > 0 && !IsJumping)
@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
             _isJumpCut = false;
 
             if (!IsJumping)
-                _isJumpFalling = false;
+                IsJumpFalling = false;
         }
 
         //Jump
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         {
             IsJumping = true;
             _isJumpCut = false;
-            _isJumpFalling = false;
+            IsJumpFalling = false;
             Jump();
         }
 
@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
             SetGravityScale(Data.gravityScale * Data.jumpCutGravityMult);
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, -Data.maxFallSpeed));
         }
-        else if ((IsJumping || _isJumpFalling) && Mathf.Abs(rb.velocity.y) < Data.jumpHangTimeThreshold)
+        else if ((IsJumping || IsJumpFalling) && Mathf.Abs(rb.velocity.y) < Data.jumpHangTimeThreshold)
         {
             SetGravityScale(Data.gravityScale * Data.jumpHangGravityMult);
         }

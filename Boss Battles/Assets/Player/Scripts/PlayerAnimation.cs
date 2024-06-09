@@ -7,11 +7,13 @@ public class PlayerAnimation : MonoBehaviour
 {
 
     private Animator animbody;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
         animbody = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
 
         if (animbody == null)
         {
@@ -30,28 +32,29 @@ public class PlayerAnimation : MonoBehaviour
     private void HandleAnimations()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-        bool isGrounded = true;
+        float moveY;
+        
 
         animbody.SetFloat("Speed", Mathf.Abs(moveX));
+        moveY = Mathf.Abs(rb.velocity.y);
 
-        if(moveY > 0f)
+        if(GetJump() || GetJumpFalling())
         {
-            animbody.SetBool("IsJumping", !isGrounded); //In air
+            animbody.SetBool("IsJumping", true);
         }
         else
         {
-            animbody.SetBool("IsJumping", isGrounded); //On Ground
+            animbody.SetBool("IsJumping", false);
         }
 
-
-        if (moveX < 0)
-        {
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f); // Facing left
-        }
-        else if (moveX > 0)
-        {
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f); // Facing right
-        }
+        
+    }
+    private bool GetJump()
+    {
+        return GetComponent<PlayerMovement>().IsJumping;
+    }
+    private bool GetJumpFalling()
+    {
+        return GetComponent<PlayerMovement>().IsJumpFalling;
     }
 }
