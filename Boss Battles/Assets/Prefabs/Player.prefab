@@ -101,8 +101,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 1.6576958
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 5
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: a0610a82dcf9789449dd7ad2ef76ebb7, type: 2}
+  IsJumpFalling: 0
   _groundCheckPoint: {fileID: 2586320509856874355}
   _groundLayer:
     serializedVersion: 2
