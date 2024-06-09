@@ -269,22 +269,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1362762895025399060, guid: f983b06cccafa6348af9d968c25e446f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1362762895025399060, guid: f983b06cccafa6348af9d968c25e446f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2104776403511297366, guid: f983b06cccafa6348af9d968c25e446f, type: 3}
-      propertyPath: _groundCheckSize.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2104776403511297366, guid: f983b06cccafa6348af9d968c25e446f, type: 3}
-      propertyPath: _groundCheckSize.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2586320509856874355, guid: f983b06cccafa6348af9d968c25e446f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.89
@@ -330,10 +314,12 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 7465083213171221745, guid: f983b06cccafa6348af9d968c25e446f, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5457410591911782913, guid: f983b06cccafa6348af9d968c25e446f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1904369777}
   m_SourcePrefab: {fileID: 100100000, guid: f983b06cccafa6348af9d968c25e446f, type: 3}
 --- !u!1 &822862824
 GameObject:
@@ -410,7 +396,7 @@ TilemapRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -703,7 +689,7 @@ TilemapRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -1292,6 +1278,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1904369768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5457410591911782913, guid: f983b06cccafa6348af9d968c25e446f, type: 3}
+  m_PrefabInstance: {fileID: 498792452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1904369777
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904369768}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04617a71f248191489ea472b748c143f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
