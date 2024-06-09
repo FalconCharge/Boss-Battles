@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerHandler : MonoBehaviour
 {
-
+    /*
     public float currHealth;
     public float maxHealth;
 
@@ -37,5 +37,6 @@ public class PlayerHandler : MonoBehaviour
         healthBar.GetComponent<Slider>().value = currHealth;
 
     }
+    */
     
 }
