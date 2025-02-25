@@ -4,18 +4,22 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Boss
   - Ground
+  - BossHealth
+  - LevelLoader
+  - SpawnPoints
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
+  - Enemy
   - Ground
-  - 
-  - 
-  - 
+  - Weapon
+  - InteractableBoss
   - 
   - 
   - 
@@ -39,15 +43,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BackRound
-    uniqueID: 550813165
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Player
-    uniqueID: 2102679739
-    locked: 0
-  - name: ForeGround
-    uniqueID: 519797923
     locked: 0
